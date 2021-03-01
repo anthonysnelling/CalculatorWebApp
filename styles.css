@@ -10,7 +10,7 @@
     "sevenButton eightButton nineButton divideButton clearButton"
     "fourButton fiveButton sixButton multiplyButton clearButton"
     "oneButton twoButton threeButton minusButton clearButton"
-    "zeroButton . . plusButton clearButton"
+    "zeroButton . . plusButton equalsButton"
 }
 
 #calculatorDisplay{
@@ -76,5 +76,9 @@
 
 #plusButton {
     grid-area: plusButton;
+}
+
+#equalsButton {
+    grid-area: equalsButton;
 }
 
