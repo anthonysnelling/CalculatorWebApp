@@ -1,84 +1,90 @@
+
+
 #calculatorContainer {
-    display: grid;
-    justify-content: center;
-    justify-items: center;
-    grid-template-columns: 20px 20px 20px 20px 20px;
-    grid-template-rows: 30px 30px 30px 30px 30px;
-    gap: 10px 40px;
-    grid-template-areas: 
+  width: 350px;
+  height: 300px;
+  justify-self: center;
+  background-color: rgb(236, 154, 46);
+  box-shadow: 30px 20px 20px rgba(0, 0, 0, 0.521);
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: 20px 20px 20px 20px 20px;
+  grid-template-rows: 30px 30px 30px 30px 30px;
+  gap: 10px 40px;
+  grid-template-areas:
     "calculatorDisplay calculatorDisplay calculatorDisplay calculatorDisplay calculatorDisplay"
     "sevenButton eightButton nineButton divideButton clearButton"
     "fourButton fiveButton sixButton multiplyButton clearButton"
     "oneButton twoButton threeButton minusButton clearButton"
-    "zeroButton zeroButton zeroButton plusButton equalsButton"
+    "zeroButton zeroButton zeroButton plusButton equalsButton";
 }
 
-#calculatorDisplay{
-    grid-area: calculatorDisplay;
-    width: 100%;
+#calculatorDisplay {
+  grid-area: calculatorDisplay;
+  width: 100%;
 }
 
 #sevenButton {
-    grid-area: sevenButton;
+  grid-area: sevenButton;
 }
 
 #eightButton {
-    grid-area: eightButton;
+  grid-area: eightButton;
 }
 
 #nineButton {
-    grid-area: nineButton;
+  grid-area: nineButton;
 }
 
 #fourButton {
-    grid-area: fourButton;
+  grid-area: fourButton;
 }
 
 #fiveButton {
-    grid-area: fiveButton;
+  grid-area: fiveButton;
 }
 
 #sixButton {
-    grid-area: sixButton;
+  grid-area: sixButton;
 }
 
 #oneButton {
-    grid-area: oneButton;
+  grid-area: oneButton;
 }
 
 #twoButton {
-    grid-area: twoButton;
+  grid-area: twoButton;
 }
 
 #threeButton {
-    grid-area: threeButton;
+  grid-area: threeButton;
 }
 
 #zeroButton {
-    grid-area: zeroButton;
+  grid-area: zeroButton;
 }
 
 #clearButton {
-    grid-area: clearButton;
+  grid-area: clearButton;
 }
 
 #divideButton {
-    grid-area: divideButton;
+  grid-area: divideButton;
 }
 
 #multiplyButton {
-    grid-area: multiplyButton;
+  grid-area: multiplyButton;
 }
 
 #minusButton {
-    grid-area: minusButton;
+  grid-area: minusButton;
 }
 
 #plusButton {
-    grid-area: plusButton;
+  grid-area: plusButton;
 }
 
 #equalsButton {
-    grid-area: equalsButton;
+  grid-area: equalsButton;
 }
-

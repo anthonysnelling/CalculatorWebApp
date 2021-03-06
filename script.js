@@ -1,11 +1,30 @@
 // TODO: Find a way to take the value from numberButtonsPressed and find the result of the string
-// also find a way to connect the keyboary keys to the buttons on screen. 
+// also find a way to connect the keyboard keys to the buttons on screen.
+
+let currentOperation = "";
+let firstVar = "";
+let secondVar = "";
+let thirdVarInput = "";
+let result = "";
+let display = document.getElementById("calculatorDisplay");
 
 function numberButtonsPressed(buttons) {
   console.log(buttons);
-  let display = document.getElementById("calculatorDisplay");
   // TODO: Use this to store the date VVVV
-  let currentOperation = "";
+
+  if (currentOperation == "clearIT") {
+    display.value = "";
+    currentOperation = "";
+  }
+
+  if (firstVar != "" && secondVar != "") {
+    result = operateFunc(firstVar, currentOperation, secondVar);
+    firstVar = result;
+    secondVar = "";
+    display.value = result;
+    thirdVarInput == true;
+  }
+
   if (buttons == "oneButton") {
     display.value += 1;
   } else if (buttons == "twoButton") {
@@ -28,19 +47,35 @@ function numberButtonsPressed(buttons) {
     display.value += 0;
   } else if (buttons == "clearButton") {
     display.value = "";
-  } else if (buttons == "plusButton" && display.value != "") {
-    display.value += "+";
+  } else if (buttons == "plusButton") {
+    if (firstVar == "" && secondVar == "" && display.value != "") {
+      firstVar = parseFloat(display.value);
+    }
+    currentOperation = "+";
+    if (thirdVarInput == "") {
+      display.value = "";
+    }
   } else if (buttons == "minusButton" && display.value != "") {
-    display.value += "-";
+    firstVar = display.value;
+    currentOperation = "-";
+    display.value += "";
   } else if (buttons == "divideButton" && display.value != "") {
     display.value += "/";
   } else if (buttons == "multiplyButton" && display.value != "") {
     display.value += "*";
+  } else if (buttons == "equalsButton") {
+    secondVar = parseFloat(display.value);
+    console.log(firstVar);
+    console.log(currentOperation);
+    console.log(secondVar);
+    result = operateFunc(firstVar, currentOperation, secondVar);
+    display.value = result;
+
+    currentOperation = "clearIT";
   }
+
 }
 
-// clear the display
-function clear() {}
 
 function additionFunc(a, b) {
   return a + b;
