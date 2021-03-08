@@ -1,28 +1,23 @@
-// TODO: Find a way to take the value from numberButtonsPressed and find the result of the string
-// also find a way to connect the keyboard keys to the buttons on screen.
+// TODO: change all to call operateFunc for all results.
+// fix the bugs. implement for other operations
+// 
 
 let currentOperation = "";
 let firstVar = "";
 let secondVar = "";
-let thirdVarInput = "";
+let clearedState = "";
 let result = "";
+let opsCounter = 0;
 let display = document.getElementById("calculatorDisplay");
 document.addEventListener("keypress", (e) => numberButtonsPressed(e.key));
 
 function numberButtonsPressed(buttons) {
-  console.log(buttons);
+  // console.log(buttons);
 
-  if (currentOperation == "clearIT") {
+  if (clearedState == "clearIT") {
     display.value = "";
     currentOperation = "";
-  }
-
-  if (firstVar != "" && secondVar != "") {
-    result = operateFunc(firstVar, currentOperation, secondVar);
-    firstVar = result;
-    secondVar = "";
-    display.value = result;
-    thirdVarInput == true;
+    clearedState == "";
   }
 
   if (buttons == "oneButton" || buttons == "1") {
@@ -49,7 +44,9 @@ function numberButtonsPressed(buttons) {
     display.value = "";
     firstVar = "";
     secondVar = "";
-    thirdVarInput = "";
+    result = "";
+    clearedState = "";
+    opsCounter = 0;
   } else if (buttons == "plusButton" || buttons == "+") {
     additionFunc(firstVar, secondVar);
   } else if (buttons == "minusButton" && display.value != "") {
@@ -68,16 +65,27 @@ function additionFunc(a, b) {
   if (a == "" && b == "") {
     firstVar = display.value;
     display.value = "";
-  } else if (a != "" && b == "") {
+    console.log("First Sec");
+  } else if (a != "" && b == "" && opsCounter == 0) {
     secondVar = display.value;
     result = parseFloat(firstVar) + parseFloat(secondVar);
     firstVar = result;
     secondVar = "";
     display.value = result;
-  } else if (a != "" && b != "") {
-    result = a + b;
+    clearedState = "clearIT";
+    opsCounter++;
+    console.log("second Sec");
+  } else if (a != "" && b == "" && opsCounter != 0) {
     display.value = result;
+    firstVar = result;
+    secondVar = "";
+    opsCounter = 0;
+    console.log("third sec");
   }
+  // console.log(firstVar);
+  // console.log(secondVar);
+  // console.log(result);
+  // console.log(currentOperation);
 }
 
 function subtractionFunc(a, b) {
@@ -94,7 +102,13 @@ function divisionFunc(a, b) {
 
 function operateFunc(o) {
   if (o == "+") {
-    return additionFunc(a, b);
+    secondVar = display.value;
+    result = parseFloat(firstVar) + parseFloat(secondVar);
+    display.value = result;
+    firstVar = result;
+    secondVar = "";
+    currentOperation = "";
+    clearedState = "clearIT";
   } else if (o == "-") {
     return subtractionFunc(a, b);
   } else if (o == "*") {
