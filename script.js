@@ -1,13 +1,17 @@
 // TODO: change all to call operateFunc for all results.
 // fix the bugs. implement for other operations
-// 
+// perform the first calculation on the first two vars
+// after the first calculation perform the following calculations with a result variable
+// and continue to do so until boolean variable is set to false after a clear is hit.
+// finish other calc functions.
+// think about changing the text field into a regular html element and use document.write to write the values in. 
 
 let currentOperation = "";
 let firstVar = "";
 let secondVar = "";
 let clearedState = "";
 let result = "";
-let opsCounter = 0;
+let firstCalc = true;
 let display = document.getElementById("calculatorDisplay");
 document.addEventListener("keypress", (e) => numberButtonsPressed(e.key));
 
@@ -46,7 +50,7 @@ function numberButtonsPressed(buttons) {
     secondVar = "";
     result = "";
     clearedState = "";
-    opsCounter = 0;
+    firstCalc = true;
   } else if (buttons == "plusButton" || buttons == "+") {
     additionFunc(firstVar, secondVar);
   } else if (buttons == "minusButton" && display.value != "") {
@@ -60,6 +64,10 @@ function numberButtonsPressed(buttons) {
   }
 }
 
+
+// TODO: add an if else tree to determine if firstCalc == true
+// if true perform the operation of first and secondVar
+// if false perform it on result and second var. 
 function additionFunc(a, b) {
   currentOperation = "+";
   if (a == "" && b == "") {
@@ -108,6 +116,7 @@ function operateFunc(o) {
     firstVar = result;
     secondVar = "";
     currentOperation = "";
+    firstCalc = false;
     clearedState = "clearIT";
   } else if (o == "-") {
     return subtractionFunc(a, b);
