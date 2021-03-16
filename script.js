@@ -1,9 +1,5 @@
-// TODO: change all to call operateFunc for all results.
-// fix the bugs. implement for other operations
-// perform the first calculation on the first two vars
-// after the first calculation perform the following calculations with a result variable
-// and continue to do so until boolean variable is set to false after a clear is hit.
-// finish other calc functions.
+// TODO: implement the rest of the functions(-*/) . 
+// customize css.
 // think about changing the text field into a regular html element and use document.write to write the values in.
 
 let currentOperation = "";
@@ -11,6 +7,8 @@ let firstVar = "";
 let secondVar = "";
 let result = "";
 let phase = 0;
+let opCount = 0;
+let currentNum = "";
 let display = document.getElementById("calculatorDisplay");
 let clearedState = false;
 document.addEventListener("keypress", (e) => numberButtonsPressed(e.key));
@@ -23,11 +21,13 @@ function numberButtonsPressed(buttons) {
       activateClear(1);
     }
   } else if (buttons == "twoButton" || buttons == "2") {
+    currentNum += 2;
     display.value += 2;
     if (clearedState) {
       activateClear(2);
     }
   } else if (buttons == "threeButton" || buttons == "3") {
+    currentNum += 3;
     display.value += 3;
     if (clearedState) {
       activateClear(3);
@@ -70,30 +70,71 @@ function numberButtonsPressed(buttons) {
   } else if (buttons == "clearButton" || buttons == "c") {
     clearDisplay();
   } else if (buttons == "plusButton" || buttons == "+") {
-    if (phase == 0) {
-      firstVar = display.value;
+    if (currentNum != "") {
       currentOperation = "+";
-      phase = 1;
-      clearedState = true;
-    } else if (phase == 1) {
-      secondVar = display.value;
-      currentOperation = "+";
-      operateFunc(firstVar, secondVar, currentOperation);
-      phase = 2;
-      secondVar = "";
-      clearedState = true;
-    } else if (phase == 2) {
-      secondVar = display.value;
-      phase = 1;
+      operateFunc(currentOperation);
     }
   } else if (buttons == "minusButton" && display.value != "") {
-    subtractionFunc();
+    currentOperation = "-";
+    operateFunc(currentOperation);
   } else if (buttons == "divideButton" && display.value != "/") {
-    divisionFunc();
+    currentOperation = "/";
+    operateFunc(currentOperation);
   } else if (buttons == "multiplyButton" && display.value != "*") {
-    multiplicationFunc();
+    currentOperation = "*";
+    operateFunc(currentOperation);
   } else if (buttons == "equalsButton" || "Enter") {
-    operateFunc(firstVar, secondVar, currentOperation);
+    if (currentNum != "") {
+      operateFunc(currentOperation);
+    }
+  }
+}
+
+function additionFunc(op1, op2) {
+  return parseFloat(op1) + parseFloat(op2);
+}
+
+function subtractionFunc(op1, op2) {
+  return parseFloat(op1) - parseFloat(op2);
+}
+
+function divisionFunc(op1, op2) {
+  return parseFloat(op1) / parseFloat(op2);
+}
+
+function multiplicationFunc(op1, op2) {
+  return parseFloat(op1) * parseFloat(op2);
+}
+
+function operateFunc(operation) {
+  console.log("phase: " + phase);
+  console.log("currentNum: " + currentNum);
+  if (phase == 0) {
+    firstVar = currentNum;
+    clearedState = true;
+    currentNum = "";
+    phase++;
+  } else if (phase == 1) {
+    secondVar = currentNum;
+
+    if (operation == "+") {
+      result = additionFunc(firstVar, secondVar);
+      display.value = result;
+      firstVar = result;
+      secondVar = "";
+      currentNum = "";
+      phase++;
+      clearedState = true;
+    }
+  } else if (phase == 2) {
+    firstVar = result;
+    secondVar = currentNum;
+    result = additionFunc(firstVar, secondVar);
+    display.value = result;
+    secondVar = "";
+    currentNum = "";
+    phase = 2;
+    clearedState = true;
   }
 }
 
@@ -103,6 +144,8 @@ function clearDisplay() {
   secondVar = "";
   result = "";
   phase = 0;
+  currentOperation = "";
+  currentNum = "";
   console.log("Cleared!");
 }
 
@@ -110,30 +153,4 @@ function clearDisplay() {
 function activateClear(num) {
   display.value = num;
   clearedState = false;
-}
-
-function operateFunc(firstNum, secondNum, o) {
-  // console.log("= was hit!")
-  console.log(firstNum);
-  console.log(secondNum);
-  console.log(o);
-  if (phase < 1) {
-    return;
-  } else if (phase == 1) {
-    if (o == "+") {
-      secondVar = display.value;
-      result = parseFloat(firstVar) + parseFloat(secondVar);
-      display.value = result;
-      firstVar = result;
-      secondVar = "";
-      // phase = 2;
-    } else if (o == "-") {
-      return subtractionFunc(a, b);
-    } else if (o == "*") {
-      return multiplicationFunc(a, b);
-    } else if (o == "/") {
-      return divisionFunc(a, b);
-    }
-  }
-  clearedState = true;
 }

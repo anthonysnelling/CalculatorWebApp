@@ -1,6 +1,9 @@
-
+body {
+  background-color: rgb(44, 44, 44);
+}
 
 #calculatorContainer {
+  float: right;
   width: 350px;
   height: 300px;
   justify-self: center;
