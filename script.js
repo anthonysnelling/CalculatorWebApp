@@ -1,4 +1,5 @@
 // TODO: implement the rest of the functions(-*/) . 
+// implement currentNum for rest of the numbers. (2 and 3 are done).
 // customize css.
 // think about changing the text field into a regular html element and use document.write to write the values in.
 
