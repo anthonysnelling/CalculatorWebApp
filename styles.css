@@ -3,29 +3,52 @@ body {
 }
 
 #calculatorContainer {
-  float: right;
-  width: 350px;
-  height: 300px;
+  width: 550px;
+  height: 500px;
   justify-self: center;
-  background-color: rgb(236, 154, 46);
+  background-color: rgb(56, 56, 56);
   box-shadow: 30px 20px 20px rgba(0, 0, 0, 0.521);
   display: grid;
-  justify-content: center;
-  justify-items: center;
-  grid-template-columns: 20px 20px 20px 20px 20px;
-  grid-template-rows: 30px 30px 30px 30px 30px;
-  gap: 10px 40px;
+  /* justify-content: center; */
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 60px 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  border-radius: 15px;
   grid-template-areas:
     "calculatorDisplay calculatorDisplay calculatorDisplay calculatorDisplay calculatorDisplay"
     "sevenButton eightButton nineButton divideButton clearButton"
     "fourButton fiveButton sixButton multiplyButton clearButton"
     "oneButton twoButton threeButton minusButton clearButton"
-    "zeroButton zeroButton zeroButton plusButton equalsButton";
+    "zeroButton zeroButton zeroButton plusButton equalsButton"
+    "zeroButton zeroButton zeroButton decimalButton equalsButton";
 }
 
 #calculatorDisplay {
   grid-area: calculatorDisplay;
   width: 100%;
+  background-color: rgb(88, 148, 189);
+  /* border-radius: 10px; */
+  text-align: right;
+  color: white;
+  font-size: 3em;
+}
+
+.calcButtons {
+  background-color: rgb(255, 166, 0);
+  color: white;
+  font-size: 3em;
+  border: none;
+  /* border-color: rgba(255, 255, 255, 0.699);
+  border-radius: 5px; */
+}
+
+.operatorButtons {
+  background-color: rgb(74, 202, 202);
+  color: white;
+  font-size: 3em;
+  border: none;
+  /* border-color: rgba(255, 255, 255, 0.521);
+  border-radius: 5px; */
 }
 
 #sevenButton {
@@ -70,6 +93,7 @@ body {
 
 #clearButton {
   grid-area: clearButton;
+  background-color: tomato;
 }
 
 #divideButton {
@@ -88,6 +112,11 @@ body {
   grid-area: plusButton;
 }
 
+#decimalButton{
+  grid-area: decimalButton;
+}
+
 #equalsButton {
   grid-area: equalsButton;
+  background-color: purple;
 }
