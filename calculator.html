@@ -9,28 +9,34 @@
     <!-- create an html calc
     buttons for each digit each of the above functions and equals key
     display is needed -->
-    <div id="flexBox">
-      <div id="calculatorContainer">
-        <div id="calculatorDisplay">0</div>
-        <button id="zeroButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">0</button>
-        <button id="oneButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">1</button>
-        <button id="twoButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">2</button>
-        <button id="threeButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">3</button>
-        <button id="fourButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">4</button>
-        <button id="fiveButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">5</button>
-        <button id="sixButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">6</button>
-        <button id="sevenButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">7</button>
-        <button id="eightButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">8</button>
-        <button id="nineButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">9</button>
-        <button id="decimalButton" class="operatorButtons" onclick="numberButtonsPressed(this.id)">.</button>
-        <button id="plusButton" class="operatorButtons" onclick="numberButtonsPressed(this.id)">+</button>
-        <button id="minusButton" class="operatorButtons" onclick="numberButtonsPressed(this.id)">-</button>
-        <button id="multiplyButton" class="operatorButtons" onclick="numberButtonsPressed(this.id)">*</button>
-        <button id="divideButton" class="operatorButtons" onclick="numberButtonsPressed(this.id)">/</button>
-        <button id="clearButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">C</button>
-        <button id="equalsButton" class="operatorButtons" onclick="numberButtonsPressed(this.id)">=</button>
+    
+      <div class="calculatorContainer">
+
+
+        <div class="calculatorKeys">
+          <div class="calculatorDisplay">0</div>
+
+          <button id="zeroButton" class="calcButtons">0</button>
+          <button id="oneButton" class="calcButtons" >1</button>
+          <button id="twoButton" class="calcButtons" >2</button>
+          <button id="threeButton" class="calcButtons">3</button>
+          <button id="fourButton" class="calcButtons">4</button>
+          <button id="fiveButton" class="calcButtons">5</button>
+          <button id="sixButton" class="calcButtons">6</button>
+          <button id="sevenButton" class="calcButtons">7</button>
+          <button id="eightButton" class="calcButtons">8</button>
+          <button id="nineButton" class="calcButtons">9</button>
+          <button id="plusButton" class="operatorButtons" data-action="add">+</button>
+          <button id="minusButton" class="operatorButtons" data-action="subtract">-</button>
+          <button id="multiplyButton" class="operatorButtons" data-action="multiply">&times;</button>
+          <button id="divideButton" class="operatorButtons" data-action="divide">÷</button>
+          <button id="decimalButton" class="operatorButtons" data-action="decimal">.</button>
+          <button id="clearButton" class="calcButtons" data-action="clear">C</button>
+          <button id="equalsButton" class="equalKey" data-action="calculate">=</button>
+        </div>
+
       </div>
-    </div>
+    
     <script src="script.js"></script>
   </body>
 </html>

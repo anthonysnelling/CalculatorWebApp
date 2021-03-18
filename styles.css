@@ -2,7 +2,7 @@ body {
   background-color: rgb(44, 44, 44);
 }
 
-#calculatorContainer {
+.calculatorKeys {
   width: 550px;
   height: 500px;
   justify-self: center;
@@ -23,7 +23,7 @@ body {
     "zeroButton zeroButton zeroButton decimalButton equalsButton";
 }
 
-#calculatorDisplay {
+.calculatorDisplay {
   grid-area: calculatorDisplay;
   width: 100%;
   background-color: rgb(88, 148, 189);
@@ -119,4 +119,7 @@ body {
 #equalsButton {
   grid-area: equalsButton;
   background-color: purple;
+  color: white;
+  font-size: 3em;
+  border: none;
 }
