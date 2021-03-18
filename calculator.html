@@ -11,7 +11,7 @@
     display is needed -->
     <div id="flexBox">
       <div id="calculatorContainer">
-        <input id="calculatorDisplay" type="text" />
+        <div id="calculatorDisplay">0</div>
         <button id="zeroButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">0</button>
         <button id="oneButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">1</button>
         <button id="twoButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">2</button>
@@ -22,12 +22,13 @@
         <button id="sevenButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">7</button>
         <button id="eightButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">8</button>
         <button id="nineButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">9</button>
-        <button id="plusButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">+</button>
-        <button id="minusButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">-</button>
-        <button id="multiplyButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">*</button>
-        <button id="divideButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">/</button>
+        <button id="decimalButton" class="operatorButtons" onclick="numberButtonsPressed(this.id)">.</button>
+        <button id="plusButton" class="operatorButtons" onclick="numberButtonsPressed(this.id)">+</button>
+        <button id="minusButton" class="operatorButtons" onclick="numberButtonsPressed(this.id)">-</button>
+        <button id="multiplyButton" class="operatorButtons" onclick="numberButtonsPressed(this.id)">*</button>
+        <button id="divideButton" class="operatorButtons" onclick="numberButtonsPressed(this.id)">/</button>
         <button id="clearButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">C</button>
-        <button id="equalsButton" class="calcButtons" onclick="numberButtonsPressed(this.id)">=</button>
+        <button id="equalsButton" class="operatorButtons" onclick="numberButtonsPressed(this.id)">=</button>
       </div>
     </div>
     <script src="script.js"></script>
