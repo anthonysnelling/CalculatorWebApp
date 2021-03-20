@@ -51,6 +51,14 @@ body {
   border-radius: 5px; */
 }
 
+.operatorButtons:active {
+  background-color: rgb(43, 121, 121);
+}
+
+.operatorButtons:focus {
+  background-color: rgb(43, 121, 121);
+}
+
 #sevenButton {
   grid-area: sevenButton;
 }
