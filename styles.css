@@ -42,6 +42,10 @@ body {
   border-radius: 5px; */
 }
 
+.calcButtons:active {
+  background-color: rgb(182, 120, 5);
+}
+
 .operatorButtons {
   background-color: rgb(74, 202, 202);
   color: white;
@@ -56,6 +60,17 @@ body {
 }
 
 .operatorButtons:focus {
+  background-color: rgb(43, 121, 121);
+}
+
+.decimalButton {
+  background-color: rgb(74, 202, 202);
+  color: white;
+  font-size: 3em;
+  border: none;
+}
+
+.decimalButton:active {
   background-color: rgb(43, 121, 121);
 }
 
@@ -99,6 +114,10 @@ body {
   grid-area: zeroButton;
 }
 
+#clearButton:active {
+  background-color: rgb(189, 68, 46);
+}
+
 #clearButton {
   grid-area: clearButton;
   background-color: tomato;
@@ -120,7 +139,7 @@ body {
   grid-area: plusButton;
 }
 
-#decimalButton{
+#decimalButton {
   grid-area: decimalButton;
 }
 
@@ -130,4 +149,8 @@ body {
   color: white;
   font-size: 3em;
   border: none;
+}
+
+#equalsButton:active {
+  background-color: rgb(78, 0, 78);
 }
