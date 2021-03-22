@@ -27,9 +27,20 @@ keys.addEventListener("click", (e) => {
       action === "multiply" ||
       action === "divide"
     ) {
+      const firstValue = calculator.dataset.firstValue;
+      const operator = calculator.dataset.operator;
+      const secondValue = displayedNum;
+
+      if (firstValue && operator && previousKeyType !== "operator") {
+        const calcVal = calculate(firstValue, operator, secondValue);
+        display.textContent = calcVal;
+        calculator.dataset.firstValue = calcVal;
+      } else {
+        calculator.dataset.firstValue = displayedNum;
+      }
+
       key.classList.add("is-depressed");
       calculator.dataset.previousKeyType = "operator";
-      calculator.dataset.firstValue = displayedNum;
       calculator.dataset.operator = action;
       console.log("operator key");
     }
@@ -51,9 +62,15 @@ keys.addEventListener("click", (e) => {
       const firstValue = calculator.dataset.firstValue;
       const operator = calculator.dataset.operator;
       const secondValue = displayedNum;
-      calculator.dataset.previousKeyType = "calculate";
 
-      display.textContent = calculate(firstValue, operator, secondValue);
+      if (firstValue) {
+        if (previousKeyType === "calculate") {
+          firstValue = displayedNum;
+        }
+        display.textContent = calculate(firstValue, operator, secondValue);
+      }
+
+      calculator.dataset.previousKeyType = "calculate";
       console.log("equal key");
     }
 
