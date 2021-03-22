@@ -1,2 +1,2 @@
 # CalculatorWebApp
-A calculator Web App (WIP)
+A calculator Web App
